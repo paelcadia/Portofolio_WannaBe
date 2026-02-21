@@ -1,0 +1,1303 @@
+/* ======================================
+   GLOBAL STYLE
+====================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #FFFFFFDE;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    /* Ganti 'cursor-main.png' dengan path yang benar */
+    cursor: url('cursor-main.png'), auto; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0F1524;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* ======================================
+   GRID LAYOUT
+====================================== */
+.site-grid {
+    display: grid;
+    grid-template-rows: auto 300px auto auto auto auto auto auto auto auto auto; 
+    grid-template-areas:
+        "header"
+        "begin"
+        "about"
+        "skill"
+        "trusted-stat"
+        "marquee"
+        "gallery"
+        "pricing"
+        "contact"
+        "footer";
+}
+
+/* ======================================
+   HEADER
+====================================== */
+.site-header {
+    grid-area: header;
+    background-color: #0F1524;
+    border-bottom: 2px solid #334155;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.site-header .container {
+    max-width: 1200px;
+    margin: 5px auto;
+    padding: 0 10px;
+    display: flex;
+    /* Memusatkan navbar di tengah container */
+    justify-content: space-evenly; 
+    align-items: center;
+}
+
+.navbar {
+    display: flex; /* Tambahkan ini agar link di navbar flex */
+}
+
+.navbar a {
+    margin-left: 18px;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: 0.2s;
+    align-items: center;
+}
+
+.brand-name {
+    display: flex;
+    text-decoration: none;
+    margin-left: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: x-large;
+    padding: 8px 12px;
+    transition: 0.2s;
+    align-items: center;
+    color: #FFD84E;
+}
+
+.brand-name:hover {
+    color: #2CBAFF;
+    cursor: url('cursor-hover.png'), auto; 
+}
+
+.navbar a:hover {
+    background-color: #1E293B;
+    border-radius: 5px;
+    color: #2CBAFF;
+    cursor: url('cursor-hover.png'), auto; 
+}
+
+/* ======================================
+   HERO / LANDING SECTION
+====================================== */
+.begin {
+    grid-area: begin;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #020617;
+    min-height: 500px; /* Menjamin tinggi minimum yang baik */
+    padding: 80px 20px; /* Tambahkan padding agar ada ruang atas/bawah */
+}
+
+.background-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.layer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat-x;
+    pointer-events: none;
+}
+
+.layer-sky { z-index: 1; background-image: url('Assets/LandingPage_Sky.webp'); animation: slide-background 120s linear infinite; }
+.layer-mountain { z-index: 2; background-image: url('Assets/LandingPage_Mountain.webp'); }
+.layer-hills { z-index: 3; background-image: url('Assets/LandingPage_Hills.webp'); }
+.layer-grass { z-index: 4; background-image: url('Assets/LandingPage_Grass.webp'); background-position-y: 2%;}
+
+.welcome {
+    /* Perbaikan: ganti 're' menjadi 'relative' */
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+}
+
+.porto-text {
+    font-size: 48px;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    text-shadow: 4px 4px 0 #000;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+/* === BUTTON STYLE === */
+.get-started {
+    display: inline-block;
+    background-color: #FFD84E; 
+    color: #000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px; 
+    text-transform: uppercase; /* Gaya Codedex */
+    text-decoration: none;
+    padding: 16px 28px; 
+    border: 3px solid #b68c00; 
+    border-radius: 6px;
+    box-shadow: 0 5px 0 #b68c00; /* Shadow tebal */
+    transition: all 0.15s ease;
+}
+
+.get-started:hover {
+    background-color: #ffec80;
+    transform: translateY(2px); 
+    box-shadow: 0 3px 0 #b68c00; 
+    /* Ganti 'cursor-hover.png' dengan path yang benar */
+    cursor: url('cursor-hover.png'), pointer; 
+}
+
+.get-started:active {
+    transform: translateY(5px); /* Tertekan sepenuhnya */
+box-shadow: none;
+}
+/* === END BUTTON STYLE === */
+
+
+/* ======================================
+   ABOUT
+====================================== */
+.about {
+    z-index: 998;
+    grid-area: about;
+    background-color: #020617;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 210px; /* Tambahkan padding horizontal */
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 40px;
+    max-width: 1000px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    transition: transform 0.4s ease-in-out;
+    transform: rotate(-3deg);
+    display: inline-block;
+}
+
+.card img {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid #334155;
+    margin-right: 50px;
+    cursor: url('cursor-hover.png'), auto;
+}
+
+.card:hover {
+    transform: rotate(0deg) scale(1.05);
+    cursor: url('cursor-hover.png'), auto;
+}
+
+.intro {
+    max-width: 500px;
+    text-align: left; /* Teks intro lebih baik rata kiri */
+}
+
+.intro h1 {
+    font-size: 36px; /* Disesuaikan agar lebih besar */
+    margin-bottom: 15px;
+    margin-top: 5px;
+    line-height: 1.2;
+    color: #FFD84E;
+    transition: transform 0.4s ease-in-out; /* Developer Hover */
+}
+
+.intro h1:hover {
+    transform: scale(1.05);
+}
+
+.intro h3 {
+    font-size: 18px;
+    color: #fff; /* Beri warna aksen */
+}
+
+.intro p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.trusted-stat {
+    grid-area: trusted-stat;
+    background-color: #020617;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px 50px;
+}
+
+.trusted-container {
+    display: flex;
+    gap: 50px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.trusted-stat h1 {
+    font-size: 48px;
+    color: #2CBAFF;
+}
+
+.trusted-stat p {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.client-container, .project-container, .year-container, .coded-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: left;
+}
+
+/* ======================================
+   REVIEWS CARD
+====================================== */
+.review-marquee {
+    grid-area: marquee;
+    background-color: #020617;
+    overflow: hidden;
+    padding: 0 0 100px 0;
+}
+
+.marquee-title h1 {
+    display: flex;
+    justify-content: center;
+    color: #FFD84E;
+    margin-bottom: 50px;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 40px;
+    white-space: nowrap;
+    animation: marquee-scroll 27s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    flex-shrink: 0;
+    width: 350px;
+    background-color: #1E293B;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid #334155;
+    transform: rotate(1deg);
+    transition: all 0.3s ease;
+    white-space: normal;
+}
+
+.testimonial-card:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.testimonial-card .rating img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 5px;
+    filter: none;
+    opacity: 1;
+}
+
+.testimonial-card .feedback {
+    font-style: italic;
+    font-size: 16px;
+    color: #FFFFFFDE;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    border-top: 1px dashed #33415555; /* Garis pemisah */
+    padding-top: 15px;
+}
+
+.reviewer-photo {
+    /* Gaya foto reviewer */
+    width: 50px !important; /* Gunakan !important jika perlu override dari img global */
+    height: 50px !important;
+    border-radius: 50%; /* Bulat */
+    object-fit: cover;
+    margin-right: 0 !important; /* Hapus margin yang diwarisi */
+    border: 2px solid #2CBAFF;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: #FFD84E;
+}
+
+.reviewer-title {
+    font-size: 13px;
+    color: #7d8591;
+    margin-top: -3px;
+}
+
+/* ======================================
+   MAIN SECTIONS (Skill, Contact, Gallery)
+====================================== */
+.main {
+    /* Jadikan kontainer flex column agar konten tersusun vertikal */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px; /* Padding vertikal besar */
+    text-align: center;
+}
+
+.main h3 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    color: #FFD84E; /* Aksen untuk judul section */
+}
+
+/* ======================================
+   GALLERY / PROJECT AREA
+====================================== */
+.gallery {
+    /* Sudah memiliki grid-area: gallery dan padding dari .main */
+    background-color: #0F1524; /* Pastikan background konsisten */
+    grid-area: gallery;
+}
+
+.project-list-container {
+    display: flex;
+    flex-direction: column; /* Proyek tersusun vertikal */
+    gap: 70px; /* Jarak antar proyek */
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.project-list-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: #1a202c; 
+    border: 2px solid #2d3748; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+    padding: 30px;
+    transition: all 0.4s ease;
+}
+
+.project-list-item:hover {
+    transform: translateY(-8px);
+    border-color: #2CBAFF; /* Aksen biru */
+}
+
+/* --- Gambar --- */
+.project-image-wrapper {
+    flex: 1; /* Ambil 1 bagian ruang */
+    max-width: 450px; 
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-list-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Info Proyek --- */
+.project-info {
+    flex: 1.2; /* Ambil sedikit lebih banyak ruang dari gambar */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h4 {
+    font-size: 28px;
+    color: #FFD84E;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 16px;
+    color: #cbd5e0;
+    line-height: 1.6;
+    margin-bottom: 30px; /* Jarak dengan footer */
+}
+
+/* --- Footer Proyek (Tags & Tombol) --- */
+.project-footer {
+    display: flex;
+    justify-content: space-between; /* Judul di kiri, tombol di kanan */
+    align-items: center;
+    border-top: 1px dashed #334155;
+    padding-top: 20px;
+}
+
+/* --- Layout Zig-Zag (Genap / Even) --- */
+.project-list-item.even .project-image-wrapper {
+    /* Pindahkan gambar ke kanan */
+    order: 2; 
+}
+.project-list-item.even .project-info {
+    /* Pindahkan teks ke kiri */
+    order: 1; 
+}
+
+/* Tags Proyek: Gunakan kembali gaya tag skill */
+.project-tags {
+    margin-bottom: 15px;
+}
+
+.tag-tech {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 5px;
+}
+
+/* Tombol Link Proyek */
+.project-link-button {
+    display: inline-block;
+    background-color: #2CBAFF; /* Warna biru sebagai aksen sekunder */
+    color: #000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px; 
+    text-transform: uppercase; 
+    text-decoration: none;
+    padding: 10px 15px; 
+    border: 2px solid #0056b3; 
+    border-radius: 4px;
+    box-shadow: 0 3px 0 #0056b3; 
+    transition: all 0.15s ease;
+    align-self: center; /* Agar tombol tidak melebar */
+}
+
+.project-link-button:hover {
+    background-color: #5abfff;
+    transform: translateY(1px); 
+    box-shadow: 0 2px 0 #0056b3; 
+}
+
+.project-link-button:active {
+    transform: translateY(3px); 
+    box-shadow: none;
+}
+
+/* ======================================
+   SKILL AREA (REVISI SPLIT LAYOUT)
+====================================== */
+.skill {
+    grid-area: skill;
+    padding: 100px 20px;
+}
+
+/* 1. Kontainer Utama (Split Kiri-Kanan) */
+.skill-container-split {
+    display: flex;
+    gap: 50px; /* Jarak antara teks dan kartu */
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center; /* Meratakan konten di tengah vertikal */
+}
+
+/* 2. Kolom Kiri (Teks dan Judul) */
+.skill-content-left {
+    flex: 1; /* Ambil setengah ruang */
+    max-width: 500px; 
+    text-align: left;
+}
+
+.skill-content-left .subtitle {
+    font-size: 14px;
+    color: #cbd5e0;
+    margin-bottom: 5px;
+}
+
+.skill-content-left h3 {
+    font-size: 40px;
+    line-height: 1.2;
+    color: #FFD84E; 
+    margin-bottom: 20px;
+}
+
+.skill-content-left .description {
+    font-size: 16px;
+    color: #cbd5e0;
+    margin-bottom: 40px;
+}
+
+/* Tombol Learn More menggunakan .get-started yang sudah ada */
+.skill-content-left .get-started {
+    /* Style button Anda sudah bagus, hanya perlu memastikan paddingnya pas */
+    padding: 12px 25px;
+    font-size: 10px;
+}
+
+/* 3. Kolom Kanan (GRID KARTU SKILL) */
+.skill-grid-container {
+    flex: 1; /* Ambil setengah ruang */
+    /* Membuat grid 4 kolom untuk kartu-kartu kecil */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; /* Jarak antar kartu lebih kecil */
+    width: 100%;
+    max-width: 600px; /* Batasi lebar agar kartu tidak terlalu besar */
+}
+
+/* --- Style Kartu Skill (Dibuat lebih compact seperti di gambar) --- */
+.skill-item {
+    background-color: #1a202c; 
+    border: 2px solid #2d3748; 
+    padding: 15px 10px; /* Padding lebih kecil */
+    border-radius: 10px; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    min-height: 130px; /* Dibuat lebih kotak/compact */
+    text-align: center;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px) scale(1.03); /* Hover yang lebih halus */
+    border-color: #2CBAFF; 
+}
+
+.skill-item img {
+    width: 35px; /* Ukuran ikon lebih kecil */
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.skill-item:hover img {
+    transform: rotate(-3deg);
+}
+
+.skill-item h4 {
+    font-size: 14px; /* Ukuran judul lebih kecil */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* --- LEVEL TAG (Diubah agar lebih minimalis di bawah) --- */
+.skill-tag {
+    padding: 4px 8px; /* Padding lebih kecil */
+    border-radius: 3px;
+    font-size: 10px; /* Font lebih kecil */
+    font-weight: 700;
+    margin-top: auto; 
+    /* Hilangkan border agar terlihat lebih bersih seperti gambar */
+    border: none; 
+}
+
+/* Tag Color Based on Level (UNCHANGED) */
+.tag-master { background-color: #28a745; color: #FFFFFF; border-color: #218838; }
+.tag-expert { background-color: #007bff; color: #FFFFFF; border-color: #0069d9; }
+.tag-advanced { background-color: #ffc107; color: #212529; border-color: #e0a800; }
+.tag-pro { background-color: #6f42c1; color: #FFFFFF; border-color: #5a2e9e; }
+
+/* ======================================
+   PRICING AREA
+====================================== */
+.pricing { 
+    grid-area: pricing; 
+    background-color: #020617; 
+}
+
+.pricing-grid-container {
+    display: grid;
+    /* 3-column grid, responsive */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.pricing-card {
+    background-color: #1a202c; 
+    border: 2px solid #2d3748; 
+    padding: 30px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px); 
+    border-color: #FFD84E;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.pricing-card h4 {
+    font-size: 22px;
+    color: #FFD84E;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.price {
+    margin-bottom: 25px;
+}
+
+.price .currency {
+    font-size: 20px;
+    color: #2CBAFF;
+    vertical-align: top;
+}
+
+.price .amount {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+    color: #FFFFFF;
+}
+
+.pricing-card p {
+    font-size: 14px;
+    color: #cbd5e0;
+    margin-bottom: 30px;
+    min-height: 40px; /* Maintain height consistency */
+}
+
+/* Recommended Card (Blue Accent) */
+.pricing-card.recommended {
+    background-color: #00273a;
+    border-color: #2CBAFF;
+    /* PERBAIKAN: Gunakan nilai transform yang sama dengan hover biasa untuk konsistensi */
+    transform: translateY(-10px); 
+    /* Mengganti scale awal agar tidak ada "lompatan" saat hover pertama */
+}
+.pricing-card.recommended h4 {
+    color: #2CBAFF;
+}
+
+/* --- HOVER KHUSUS UNTUK KARTU RECOMMENDED --- */
+.pricing-card.recommended:hover {
+    /* Menjaga konsistensi transform, mungkin hanya sedikit lebih besar */
+    transform: translateY(-12px) scale(1.01); /* Sedikit lebih tinggi dan sedikit membesar */
+    border-color: #FFD84E; 
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6); /* Sedikit lebih menonjol */
+}
+
+/* --- Features List --- */
+/* PERBAIKAN: Pastikan ada ruang yang cukup dan konsisten, tanpa memicu reflow yang patah */
+.features-list {
+    /* Gunakan flex-grow untuk mengisi ruang yang tersisa, bukan padding besar yang statis */
+    flex-grow: 1; 
+    width: 100%;
+    text-align: left; /* Mengatur kembali perataan list ke kiri agar tidak terlalu lebar */
+    margin-bottom: 20px; /* Memberi sedikit jarak antara list dan tombol */
+}
+
+.features-list li {
+    display: flex; /* Menggunakan flexbox untuk penataan ikon dan teks yang lebih baik */
+    align-items: center;
+    gap: 10px; /* Jarak antara ikon dan teks */
+    padding: 5px 0; /* Tambahkan sedikit padding vertikal pada setiap item list */
+}
+
+.features-list .feature-icon {
+    width: 18px; 
+    height: 18px; 
+    object-fit: contain; 
+    vertical-align: middle; 
+    margin-right: 0; /* Gap sudah menangani jarak, hapus margin-right di sini */
+}
+
+.features-list .disabled,
+.features-list .diabled { /* Perbaikan typo pada HTML: 'diabled' seharusnya 'disabled' */
+    color: #64748b; 
+}
+
+.features-list li.disabled {
+    color: #5d6675;
+    text-decoration: line-through;
+}
+
+.features-list li.disabled .feature-icon {
+    opacity: 0.4; 
+}
+
+.pricing-card .get-started {
+    /* Use the existing get-started button style */
+    margin-top: auto; 
+    /* Pastikan tombol tidak punya margin-bottom ekstra agar selalu di bawah */
+    margin-bottom: 0; 
+}
+
+/* ======================================
+   KONFIGURASI DASAR SECTION CONTACT
+====================================== */
+.contact {
+    /* Pastikan padding section contact sama dengan section lainnya */
+    padding: 100px 20px;
+    text-align: center; /* Untuk meratakan H3 */
+}
+
+.contact h3 {
+    color: #FFD84E; /* Warna Kuning Aksen */
+    margin-bottom: 60px;
+    font-size: 30px;
+}
+
+/* --- 1. Kontainer Utama Split: Kiri vs Kanan --- */
+.contact-container-split-revised {
+    display: flex;
+    gap: 50px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; 
+}
+
+/* ======================================
+   KOLOM KIRI: Teks & Info Kontak
+====================================== */
+.contact-text-area {
+    flex: 1; 
+    max-width: 500px; 
+    text-align: left;
+}
+
+.contact-text-area .subtitle {
+    font-size: 14px;
+    color: #cbd5e0;
+    margin-bottom: 5px;
+}
+
+.contact-text-area h4 {
+    font-size: 36px; 
+    line-height: 1.2;
+    color: #FFD84E; 
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-text-area .description {
+    font-size: 16px;
+    color: #cbd5e0;
+    margin-bottom: 30px; 
+}
+
+/* Area Kontak Langsung */
+.contact-info-direct {
+    margin-top: 30px; 
+    background-color: #1a202c; 
+    border: 2px solid #2d3748; 
+    border-radius: 12px; 
+    padding: 30px; 
+}
+.contact-info-direct h4 {
+    font-size: 24px;
+    color: #FFD84E;
+    margin-bottom: 20px;
+}
+
+/* Style Kartu Info Kontak */
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #0F1524;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px; 
+    border: 1px solid #334155;
+}
+.info-card .custom-icon {
+    width: 25px; /* Menggunakan width/height untuk gambar */
+    height: 25px;
+    object-fit: contain; /* Memastikan gambar tidak terdistorsi */
+    min-width: 25px;
+    text-align: center;
+}
+.info-card h5 {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 0;
+}
+.info-card p {
+    font-size: 14px;
+    color: #cbd5e0;
+    margin: 0;
+}
+.contact-info-direct .info-card:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* ======================================
+   KOLOM KANAN: FORMULIR DENGAN LABEL STATIS
+====================================== */
+.contact-form-only { 
+    flex: 1;
+    background-color: #1a202c; 
+    border: 2px solid #2d3748; 
+    border-radius: 12px; 
+    /* Padding diubah agar form lebih luas, sesuai referensi */
+    padding: 40px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
+
+.contact-form-area-stacked h4.form-title {
+    font-size: 24px;
+    color: #FFD84E;
+    /* Jarak di bawah judul form diubah */
+    margin-bottom: 25px; 
+}
+
+/* --- Form Row: Mengatur Input Berdampingan --- */
+.contact-form .form-row {
+    display: flex;
+    gap: 20px; /* Jarak horizontal sedikit dilebarkan */
+    /* Form-row tidak perlu margin-bottom karena akan dihandle oleh .form-group */
+}
+
+/* --- Form Group: Container untuk Label dan Input --- */
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    /* Jarak vertikal antar input diperlebar agar lebih lega */
+    margin-bottom: 20px; 
+}
+
+/* Hapus margin-bottom pada form-group terakhir */
+.contact-form .form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+/* --- STYLE LABEL STATIS --- */
+.contact-form label {
+    font-size: 14px;
+    color: #FFFFFF; /* Warna putih penuh */
+    margin-bottom: 8px; 
+    font-weight: 700; /* Lebih tebal */
+    text-align: left;
+}
+
+
+/* --- STYLE INPUT & TEXTAREA --- */
+.contact-form input,
+.contact-form textarea {
+    width: 100%; 
+    padding: 15px 15px; /* Padding vertikal sedikit ditingkatkan */
+    margin: 0; 
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background-color: #0F1524;
+    color: #FFFFFFDE;
+    font-size: 16px; /* Ukuran font input sedikit ditingkatkan */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #2CBAFF;
+    box-shadow: 0 0 0 2px #2c9aff3f;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+/* --- Style Button --- */
+.contact-form .get-started {
+    /* Jarak di atas tombol ditingkatkan */
+    margin-top: 30px; 
+    width: 100%;
+    padding: 15px;
+    background-color: #FFD84E;
+    color: #1a202c;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form .get-started:hover {
+    background-color: #ffc400; 
+}
+
+/* ===========================
+   FOOTER AREA
+==============================*/
+.main-footer {
+    /* Background harus konsisten dengan warna gelap website (Contoh: #1a202c) */
+    background-color: #1a202c; 
+    border-top: 1px solid #2d3748; 
+    padding: 50px 20px 0; /* Padding vertikal lebih besar di atas untuk konten */
+    color: #cbd5e0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Grid 4 kolom: kolom pertama (branding) sedikit lebih lebar */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+    gap: 40px; /* Jarak antar kolom */
+    padding-bottom: 30px; 
+}
+
+/* --- Kolom 1: Branding & Deskripsi Singkat --- */
+.footer-column.branding-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFD84E; /* Aksen Kuning Emas */
+    margin: 0;
+}
+
+.branding-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+/* --- Social Media Icons --- */
+.footer-social-links {
+    display: flex;
+    gap: 15px; 
+    margin-top: 10px;
+}
+
+.footer-social-links .social-icon-link .custom-social-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-links .social-icon-link {
+    color: #cbd5e0; /* Warna ikon default */
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-social-links .social-icon-link:hover {
+    color: #2CBAFF; /* Aksen Biru saat hover */
+}
+
+
+/* --- Kolom Navigasi (Kolom 2, 3, 4) --- */
+.footer-column h5 {
+    font-size: 16px;
+    color: #FFFFFF; /* Judul kolom putih */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px; /* Jarak vertikal antar tautan */
+}
+
+.footer-column a {
+    color: #94a3b8; 
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #FFD84E; /* Aksen Emas saat hover */
+}
+
+/* --- Footer Bottom (Copyright Bar) --- */
+.footer-bottom {
+    border-top: 1px solid #2d3748;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom .copyright-year {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+.footer-bottom .accent-text {
+    color: #FFD84E; 
+    font-weight: 600;
+}
+
+/* ======================================
+   ANIMATIONS
+====================================== */
+@keyframes slide-background {
+    from { background-position: top center; }
+    to { background-position: top right; }
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } 
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ======================================
+   BREAKPOINT
+====================================== */
+
+/* --- 1. Desktop Layout Tepat di bawah Max Width Container (1200px) --- */
+@media (max-width: 1200px) {
+    .pricing {
+        padding: 0 20px; 
+    }
+    
+    .pricing-grid-container {
+        max-width: 100%; 
+        gap: 25px;
+    }
+
+    /* Penyesuaian padding container header */
+    .site-header .container {
+        padding: 5px 20px;
+    }
+}
+
+/* --- 2. Desktop/Tablet Besar (1120px) --- */
+@media (max-width: 1120px) {
+    /* Perbaikan 1: Mencegah section melebar. Sudah ditangani di 1200px, hanya pastikan padding cukup. */
+    .pricing {
+        padding: 0 15px; 
+    }
+    
+    /* Mengurangi ukuran font navbar */
+    .navbar a {
+        font-size: 14px;
+        margin-left: 15px;
+    }
+}
+
+
+/* --- 3. Tablet Landscape (2 Kolom Pricing) (940px) --- */
+@media (max-width: 940px) {
+    /* Perbaikan 1: Mencegah section melebar. */
+    .pricing {
+        padding: 0 10px; 
+    }
+    
+    /* Pada ukuran ini, grid pricing mungkin akan beralih dari 3 kolom ke 2 kolom (dikelola oleh auto-fit) */
+    .pricing-grid-container {
+        max-width: 650px; /* Batasi lebar container di tengah */
+    }
+
+    /* Mengurangi jarak antara kartu */
+    .pricing-card {
+        padding: 25px;
+    }
+    
+    /* Mengurangi padding container header */
+    .site-header .container {
+        padding: 5px 10px;
+    }
+
+    /* ======================================
+    PRICING AREA
+    ====================================== */
+    .pricing { 
+        grid-area: pricing; 
+        background-color: #020617; 
+    }
+
+    .pricing-grid-container {
+        display: grid;
+        /* 3-column grid, responsive */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 30px; 
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        flex-shrink: 1.5%;
+    }
+
+    .pricing-card {
+        background-color: #1a202c; 
+        border: 2px solid #2d3748; 
+        padding: 30px;
+        border-radius: 12px; 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- 4. Tablet Portrait/Mobile Besar (1 Kolom Pricing) (720px) --- */
+@media (max-width: 720px) {
+    /* Perbaikan 1: Mencegah section melebar. */
+    .pricing {
+        padding: 0 10px; 
+    }
+    
+    /* Membuat pricing grid menjadi satu kolom utama */
+    .pricing-grid-container {
+        grid-template-columns: 1fr; /* Paksa menjadi 1 kolom */
+        max-width: 350px; /* Batasi lebar kartu agar tidak terlalu besar di layar kecil */
+    }
+    
+    .pricing-card {
+        margin-bottom: 20px; /* Jarak antar kartu saat bertumpuk */
+    }
+
+    /* Perbaikan 2 & 3: Memusatkan konten di section lain (Gallery/About) */
+    /* Asumsi: Gunakan class .content-section untuk section lain yang perlu di-center */
+    /* Jika Anda menggunakan class yang berbeda, ganti selector ini */
+    .about, .gallery { 
+        padding: 20px 15px; /* Tambahkan padding yang memadai */
+        text-align: center; /* Memastikan teks dan konten inline rata tengah */
+    }
+    .about-content, .gallery-container { /* Asumsi nama container untuk About dan Gallery */
+        max-width: 100%;
+        margin: 0 auto;
+        /* Jika elemen di dalamnya flex, atur justify-content */
+        justify-content: center;
+        align-items: center;
+        /* Hapus properti rata kiri yang mungkin ada di layout desktop */
+        text-align: center; 
+    }
+    /* Untuk tombol/elemen yang berantakan di gallery, mungkin perlu di-flex atau grid */
+    .project-gallery-item, .project-buttons {
+        /* Contoh perbaikan jika ada elemen yang berantakan */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px auto; 
+    }
+
+
+    /* Layout Navbar: Tumpuk Vertikal di dalam container */
+    .site-header .container {
+        flex-direction: column; /* Tumpuk logo dan navbar */
+        padding: 10px 10px 5px 10px;
+    }
+    
+    /* Navbar sendiri tumpuk horizontal (karena flex) tapi bungkus */
+    .navbar {
+        flex-wrap: wrap; 
+        justify-content: center; /* Pusatkan link */
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .navbar a {
+        margin: 5px 8px; /* Atur margin agar tidak terlalu mepet */
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+
+    /* Mengurangi ukuran font harga */
+    .price .amount {
+        font-size: 48px;
+    }
+
+        /* ======================================
+    PRICING AREA
+    ====================================== */
+    .pricing { 
+        grid-area: pricing; 
+        background-color: #020617; 
+    }
+
+    .pricing-grid-container {
+        display: grid;
+        /* 3-column grid, responsive */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 30px; 
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        flex-shrink: 1.5%;
+    }
+}
